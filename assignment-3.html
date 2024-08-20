@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #333;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="toggleButton">Click Me</button>
+        <p id="text">Initial Text</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.getElementById('toggleButton');
+            const container = document.querySelector('.container');
+            const text = document.getElementById('text');
+
+            let isToggled = false;
+
+            button.addEventListener('click', function() {
+                if (isToggled) {
+                    button.textContent = 'Click Me';
+                    text.textContent = 'Initial Text';
+                    container.style.backgroundColor = '#ffffff';
+                    button.style.backgroundColor = '#007bff';
+                    button.style.color = 'white';
+                } else {
+                    button.textContent = 'Clicked!';
+                    text.textContent = 'Text Changed';
+                    container.style.backgroundColor = '#ffeb3b';
+                    button.style.backgroundColor = '#28a745';
+                    button.style.color = 'white';
+                }
+
+                isToggled = !isToggled;
+            });
+        });
+    </script>
+</body>
+</html>
